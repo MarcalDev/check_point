@@ -17,7 +17,7 @@ class HomeCheckInCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+      padding: EdgeInsets.symmetric(vertical: 10.h),
       child: Row(
         children: [
           Container(
@@ -33,7 +33,7 @@ class HomeCheckInCardWidget extends StatelessWidget {
           Expanded(
             child: Align(
               alignment: Alignment.centerRight,
-              child: TextWidget(text: checkInTime, fontSize: AppTextFonts.cardTimeFont, fontWeight: FontWeight.bold,)
+              child: TextWidget(text: checkInTime, fontSize: AppTextFonts.cardTitleFont, fontWeight: FontWeight.bold,)
               )
               ),
         ],
