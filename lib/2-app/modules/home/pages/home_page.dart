@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextWidget(text: 'Pontos de Hoje', fontSize: AppTextFonts.pageTitleFont, fontWeight: FontWeight.w600),
+                TextWidget(text: 'Pontos de Hoje', fontSize: AppTextFonts.cardTimeFont, fontWeight: FontWeight.w600),
                 TextWidget(text: 'Ver mais', fontSize: AppTextFonts.detailTextFont, fontWeight: FontWeight.w500),
               ],
             ),

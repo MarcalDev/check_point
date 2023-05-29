@@ -1,6 +1,7 @@
-import 'package:check_point/2-app/modules/home/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '2-app/modules/home/pages/main_menu_page.dart';
 
 void main() async{
   await ScreenUtil.ensureScreenSize();
@@ -11,7 +12,7 @@ void main() async{
       ScreenUtil.init(ctx);
       return Theme(
         data: ThemeData(),
-        child: HomePage(),
+        child: const MainMenuPage(),
       );
     },
     ));

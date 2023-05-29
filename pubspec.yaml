@@ -33,6 +33,8 @@ dependencies:
   flutter_screenutil: ^5.8.1
   flutter_svg: ^2.0.6
   intl: ^0.18.1
+  get: ^4.6.5
+  navigation_bar_milo: ^0.0.1
 
 
   # The following adds the Cupertino Icons font to your application.

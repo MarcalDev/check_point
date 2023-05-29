@@ -7,6 +7,7 @@ class AppTextFonts {
   static double buttonTextFont = 16.sp;
   static double textFieldFont = 15.sp;
   static double cardTitleFont = 15.sp;
+  static double bottomBarTextFont = 13.sp;
   static double detailTextFont = 11.sp;
   static double smallTextFont = 9.sp;
 }

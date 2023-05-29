@@ -19,76 +19,71 @@ class HomeBackgroundWidget extends StatefulWidget {
 class _HomeBackgroundWidgetState extends State<HomeBackgroundWidget> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: SafeArea(
-        child: Scaffold(
-          body: Container(
-            color: AppColors.lightGreyColor,
-            child: Padding(
-              padding: EdgeInsets.only(top: 30.h,),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 25.w),
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            child: SvgPicture.asset(AppAssets.exitIcon),
-                          ),
-                          // SizedBox(width: 10.w,),
-                          // TextWidget(text: 'Bom Dia, João', textColor: AppColors.whiteColor, fontSize: AppTextFonts.cardTitleFont, fontWeight: FontWeight.bold,)
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25.h,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 25.w),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                         TextWidget(text:'Bom dia, João!', fontSize: AppTextFonts.pageTitleFont, fontWeight: FontWeight.bold),
-                    SizedBox(height: 2.h,),
-                    TextWidget(text: '20 de Maio de 2023', fontSize: AppTextFonts.detailTextFont, fontWeight: FontWeight.w600),
-                      ],
-                    ),
-                  ),     
-                  SizedBox(height: 25.w),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
+    return Container(
+        color: AppColors.lightGreyColor,
+        child: Padding(
+          padding: EdgeInsets.only(top: 30.h,),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25.w),
+                  child: Row(
                     children: [
-                      HomeInfoCardWidget(title: 'Horas Extras', value: '03h30m', period: 'Últimos 30 dias'),
-                      SizedBox(width: 10.w),
-                      HomeInfoCardWidget(title: 'Faltas', value: '05', period: 'Últimos 30 dias'),
-                      SizedBox(width: 10.w),
-                      HomeInfoCardWidget(title: 'Atrasos', value: '02', period: 'Últimos 30 dias'),
+                      CircleAvatar(
+                        child: SvgPicture.asset(AppAssets.exitIcon),
+                      ),
+                      // SizedBox(width: 10.w,),
+                      // TextWidget(text: 'Bom Dia, João', textColor: AppColors.whiteColor, fontSize: AppTextFonts.cardTitleFont, fontWeight: FontWeight.bold,)
                     ],
                   ),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(topLeft:  Radius.circular(25.h), topRight:  Radius.circular(25.h)),
-                          color: AppColors.whiteColor 
-                        ),
-                        height: MediaQuery.of(context).size.height / 2,
-                        child: widget.child,                
-                      ),
-                    ),
-                  ),
+                ),
+              ),
+              SizedBox(
+                height: 25.h,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                     TextWidget(text:'Bom dia, João!', fontSize: AppTextFonts.pageTitleFont, fontWeight: FontWeight.bold),
+                SizedBox(height: 2.h,),
+                TextWidget(text: '20 de Maio de 2023', fontSize: AppTextFonts.detailTextFont, fontWeight: FontWeight.w600),
+                  ],
+                ),
+              ),     
+              SizedBox(height: 25.w),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const HomeInfoCardWidget(title: 'Horas Extras', value: '03h30m', period: 'Últimos 30 dias'),
+                  SizedBox(width: 10.w),
+                  const HomeInfoCardWidget(title: 'Faltas', value: '05', period: 'Últimos 30 dias'),
+                  SizedBox(width: 10.w),
+                  const HomeInfoCardWidget(title: 'Atrasos', value: '02', period: 'Últimos 30 dias'),
                 ],
               ),
-            )),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(topLeft:  Radius.circular(25.h), topRight:  Radius.circular(25.h)),
+                      color: AppColors.whiteColor 
+                    ),
+                    height: MediaQuery.of(context).size.height / 2.3,
+                    child: widget.child,                
+                  ),
+                ),
+              ),
+            ],
           ),
-        ),
-    );
+        ));
+
   }
 }
