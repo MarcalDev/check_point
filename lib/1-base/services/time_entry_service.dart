@@ -10,7 +10,7 @@ class TimeEntryService implements BaseService<TimeEntry>, ITimeEntry{
 
   @override
   Stream<QuerySnapshot> getStream() {    
-    throw UnimplementedError();
+    return collection.snapshots();
   }
   
   @override

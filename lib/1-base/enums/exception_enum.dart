@@ -1,0 +1,1 @@
+enum LoginException { userNotFound, wrongPassword }
