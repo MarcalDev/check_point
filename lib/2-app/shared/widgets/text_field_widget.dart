@@ -13,6 +13,7 @@ class TextFieldWidget extends StatefulWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final int? maxLines;
+  final TextEditingController textEditingController;
   const TextFieldWidget(
       {super.key,
       required this.hintText,
@@ -23,7 +24,8 @@ class TextFieldWidget extends StatefulWidget {
       this.width,
       this.suffixIcon,
       this.prefixIcon,
-      this.maxLines});
+      this.maxLines,
+      required this.textEditingController});
 
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
@@ -35,46 +37,58 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-    widget.labelText != null
-        ? Column(
-            children: [
-              TextWidget(
-                  text: widget.labelText!, textColor: AppColors.blackColor, fontSize: AppTextFonts.textFieldFont),
-              const SizedBox(
-                height: 8,
+        widget.labelText != null
+            ? Column(
+                children: [
+                  TextWidget(
+                    text: widget.labelText!,
+                    textColor: AppColors.blackColor,
+                    fontSize: AppTextFonts.textFieldFont,
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                ],
+              )
+            : const SizedBox(),
+        SizedBox(
+          width: widget.width,
+          child: TextField(
+            controller: widget.textEditingController,
+            textAlignVertical: TextAlignVertical.center,
+            keyboardType: widget.keyboardType ?? TextInputType.text,
+            obscureText: widget.isPassword,
+            maxLines: widget.maxLines,
+            decoration: InputDecoration(
+              suffixIcon: widget.suffixIcon,
+              prefixIcon: widget.prefixIcon,
+              contentPadding:
+                  const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              hintText: widget.hintText,
+              fillColor: AppColors.whiteColor,
+              labelStyle: const TextStyle(
+                  color: AppColors.blackColor,
+                  backgroundColor: Colors.transparent),
+              hintStyle: const TextStyle(
+                color: AppColors.blackColor,
+                backgroundColor: Colors.transparent,
               ),
-            ],
-          )
-        : const SizedBox(),
-    SizedBox(
-      width: widget.width,
-      child: TextField(
-        textAlignVertical: TextAlignVertical.center,
-        keyboardType: widget.keyboardType ?? TextInputType.text,
-        obscureText: widget.isPassword,
-        maxLines: widget.maxLines,
-        decoration: InputDecoration(
-          suffixIcon: widget.suffixIcon,
-          prefixIcon: widget.prefixIcon,
-          contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          hintText: widget.hintText,
-          fillColor: AppColors.whiteColor,
-          labelStyle: const TextStyle(color: AppColors.blackColor, backgroundColor: Colors.transparent),
-          hintStyle: const TextStyle(
-            color: AppColors.blackColor,
-            backgroundColor: Colors.transparent,
+              isDense: false,
+              filled: true,
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(Radius.circular(6)),
+                  borderSide: BorderSide(
+                      color: widget.borderColor ??
+                          AppColors.textFieldBackgroundColor,
+                      width: 0.5)),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(Radius.circular(6)),
+                  borderSide: BorderSide(
+                      color: widget.borderColor ??
+                          AppColors.textFieldBackgroundColor)),
+            ),
           ),
-          isDense: false,
-          filled: true,
-          enabledBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(6)),
-              borderSide: BorderSide(color: widget.borderColor ?? AppColors.textFieldBackgroundColor, width: 0.5)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(6)),
-              borderSide: BorderSide(color: widget.borderColor ?? AppColors.textFieldBackgroundColor)),
         ),
-      ),
-    ),
       ],
     );
   }
